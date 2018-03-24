@@ -52,7 +52,7 @@ int quadrant(Point p){
 }
 
 bool is_equal(Point p1, Point p2){
-    return ((p1.x==p2.x)&&(p2.x==p2.y));
+    return ((p1.x==p2.x)&&(p1.y==p2.y));
 }
 
 bool is_origin(Point p){
