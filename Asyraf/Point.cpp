@@ -1,4 +1,5 @@
 #include "Point.h"
+#include <iostream>
 
 Point add (Point p1, Point p2) {
 Point p3;
@@ -47,3 +48,6 @@ bool is_origin (Point p) {
 	return (p.x==0 && p.y==0);
 }
 
+void printPoint (Point p) {
+	cout << p.x << " " << p.y;
+}
