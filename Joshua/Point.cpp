@@ -4,6 +4,13 @@
 
 using namespace std;
 
+Point makePoint(int x, int y){
+    Point p;
+    p.x = x;
+    p.y = y;
+    return p;
+}
+
 Point add(Point p1,Point p2){
     Point sum;
     sum.x = p1.x + p2.x;

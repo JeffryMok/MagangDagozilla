@@ -6,6 +6,7 @@ typedef struct Point {
     int y;
 } Point;
 
+Point makePoint(int x, int y);
 Point add(Point p1, Point p2);
 Point substract(Point p1, Point p2);
 float distance(Point p1, Point p2);

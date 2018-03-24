@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-    Polygon poly = makePolygon();
+    Polygon poly = makePolygon(4);
 
     Point p1, p2, p3;
     p1.x = 2;
@@ -41,6 +41,8 @@ int main(){
     delPoint(poly);
     cout << "current poly : " << endl;
     printPolygon(poly);
+
+    deletePolygon(poly);
 
 
 }

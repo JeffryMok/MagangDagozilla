@@ -3,9 +3,12 @@
 
 using namespace std;
 
-Polygon makePolygon(){
+Polygon makePolygon(int size){
     Polygon poly;
+    // malloc return address of nothing
+    // sedangkan kita butuh address of point, sehingga dicasting
     poly.count = 0;
+    poly.points = (Point*)(malloc(size * (sizeof(Point))));
     return poly;
 }
 
@@ -34,4 +37,8 @@ void printPolygon(Polygon polygon){
     for(int i = 0; i<jumlah;i++){
         printPoint(polygon.points[i]);
     }
+}
+
+void deletePolygon(Polygon& polygon){
+    free(polygon.points); //tidak polygon karena polygon diatur compiler
 }

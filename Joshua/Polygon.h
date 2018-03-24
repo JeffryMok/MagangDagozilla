@@ -5,13 +5,14 @@
 #include "Point.h"
 
 typedef struct Polygon {
-    Point points[5];
+    Point *points;
     int count;
 } Polygon;
 
-Polygon makePolygon();
+Polygon makePolygon(int size);
 void addPoint(Point point, Polygon& polygon);
 void delPoint(Polygon& polygon);
 void printPolygon(Polygon polygon);
+void deletePolygon(Polygon& polygon);
 
 #endif
