@@ -11,7 +11,7 @@ typedef struct Polygon {
 
 Polygon makePolygon();
 void addPoint(Point point, Polygon& polygon);
-void delPoints(Polygon& polygon);
+void delPoint(Polygon& polygon);
 void printPolygon(Polygon polygon);
 
 #endif

@@ -22,7 +22,7 @@ void addPoint(Point point, Polygon& polygon){
 
 }
 
-void delPoints(Polygon& polygon){
+void delPoint(Polygon& polygon){
     if(polygon.count>0){
         polygon.count--;
     }
@@ -30,7 +30,6 @@ void delPoints(Polygon& polygon){
 
 void printPolygon(Polygon polygon){
     int jumlah = polygon.count;
-    cout << jumlah;
 
     for(int i = 0; i<jumlah;i++){
         printPoint(polygon.points[i]);
