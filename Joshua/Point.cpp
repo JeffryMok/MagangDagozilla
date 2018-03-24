@@ -1,5 +1,8 @@
 #include <cmath>
 #include "Point.h"
+#include <iostream>
+
+using namespace std;
 
 Point add(Point p1,Point p2){
     Point sum;
@@ -57,4 +60,8 @@ bool is_equal(Point p1, Point p2){
 
 bool is_origin(Point p){
     return ((p.x==0)&&(p.y==0));
+}
+
+void printPoint(Point p){
+    cout << "(" << p.x << "," << p.y << ")" << endl;
 }
