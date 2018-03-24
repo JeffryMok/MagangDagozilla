@@ -42,7 +42,46 @@ int main(){
     cout << "current poly : " << endl;
     printPolygon(poly);
 
+    cout << endl;
+
+    Polygon poly2 = makePolygon(4);
+
+    cout << "copying polygon" << endl;
+    copyPolygon(poly, poly2);
+    cout << "current poly : " << endl;
+    printPolygon(poly);
+    cout << "current poly2 : " << endl;
+    printPolygon(poly2);
+
+    cout << endl;
+
+    cout << "add p3 to poly2 ";
+    printPoint(p3);
+    addPoint(p3, poly2);
+    cout << "current poly : " << endl;
+    printPolygon(poly);
+    cout << "current poly2 : " << endl;
+    printPolygon(poly2);
+
+    cout << endl;
+
+    cout << "delete point from poly2" << endl;
+    delPoint(poly2);
+    cout << "current poly2   : " << endl;
+    printPolygon(poly2);
+
+    cout << endl;
+
+    cout << "add p3 to poly ";
+    printPoint(p3);
+    addPoint(p3, poly);
+    cout << "current poly : " << endl;
+    printPolygon(poly);
+    cout << "current poly2 : " << endl;
+    printPolygon(poly2);
+
     deletePolygon(poly);
+    deletePolygon(poly2);
 
 
 }

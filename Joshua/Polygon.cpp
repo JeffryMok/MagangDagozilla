@@ -42,3 +42,13 @@ void printPolygon(Polygon polygon){
 void deletePolygon(Polygon& polygon){
     free(polygon.points); //tidak polygon karena polygon diatur compiler
 }
+
+void copyPolygon(Polygon& src, Polygon& dst){
+    Polygon copy = makePolygon(src.count);
+    for(int i = 0; i<src.count;i++){
+        addPoint(src.points[i],copy);
+    }
+    dst = copy;
+
+    //  dst = src;
+}
