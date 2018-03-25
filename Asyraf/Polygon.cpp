@@ -27,8 +27,21 @@ void printPolygon(Polygon polygon) {
 	{ 
 		printPoint(polygon.points[i]);
 	}
+	cout << endl;
 }
 
 void deletePolygon(Polygon& polygon) {
 	free(polygon.points);
+}
+
+Polygon copyPolygon(Polygon polygon) {
+	Polygon poly;
+	poly = makePolygon(polygon.count);
+	for (int i=0; i<polygon.count; i++)
+	{
+		poly.points[i] = polygon.points[i];
+		poly.count++;
+	}
+
+	return poly;
 }
