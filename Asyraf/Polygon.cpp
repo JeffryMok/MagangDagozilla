@@ -34,14 +34,11 @@ void deletePolygon(Polygon& polygon) {
 	free(polygon.points);
 }
 
-Polygon copyPolygon(Polygon polygon) {
-	Polygon poly;
-	poly = makePolygon(polygon.count);
-	for (int i=0; i<polygon.count; i++)
+void copyPolygon(Polygon& src, Polygon& dst) {
+	deletePolygon(dst);
+	dst.points = (Point *) malloc(src.count * sizeof(Point));
+	for (int i=0; i<src.count; i++)
 	{
-		poly.points[i] = polygon.points[i];
-		poly.count++;
+		addPoint (src.points[i], dst);
 	}
-
-	return poly;
 }

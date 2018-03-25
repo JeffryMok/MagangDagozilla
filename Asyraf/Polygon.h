@@ -16,6 +16,6 @@ void addPoint (Point point, Polygon& polygon);
 void delPoint (Polygon& Polygon);
 void printPolygon(Polygon polygon);
 void deletePolygon(Polygon& polygon);
-Polygon copyPolygon(Polygon polygon);
+void copyPolygon(Polygon& src, Polygon& dst);
 
 #endif

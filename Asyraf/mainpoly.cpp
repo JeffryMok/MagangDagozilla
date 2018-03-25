@@ -26,13 +26,16 @@ int main() {
 
 	printPolygon(new_poly);	
 
-	Polygon copy_poly = copyPolygon(new_poly);
+	Polygon copy_poly = makePolygon(5);
+
+	copyPolygon(new_poly, copy_poly);
+	
 	printPolygon(copy_poly);
 
 	delPoint(new_poly);	
 
 	printPolygon(new_poly);
-
+	printPolygon(copy_poly);
 
 	return 0;
 }
