@@ -37,5 +37,9 @@ int main() {
 	printPolygon(new_poly);
 	printPolygon(copy_poly);
 
+	deletePolygon(new_poly);
+	deletePolygon(copy_poly);
+
+
 	return 0;
 }
