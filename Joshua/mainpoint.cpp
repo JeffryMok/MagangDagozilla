@@ -5,14 +5,16 @@ using namespace std;
 
 int main(){
     Point a;
-    a.x = 3;
+    a.x = 7;
     a.y = 5;
 
     Point b;
     b.x = 7;
-    b.x = 5;
+    b.y = 5;
 
-    float jarak = distance(a,b);
+    float jarak = distance_to_origin(a);
+    int kuadran = is_equal(a,b);
+    cout<<kuadran<<endl;
 
     cout<<a.x<<" "<<a.y<<endl;
     cout<<jarak<<endl;

@@ -1,5 +1,15 @@
 #include <cmath>
 #include "Point.h"
+#include <iostream>
+
+using namespace std;
+
+Point makePoint(int x, int y){
+    Point p;
+    p.x = x;
+    p.y = y;
+    return p;
+}
 
 Point add(Point p1,Point p2){
     Point sum;
@@ -52,9 +62,13 @@ int quadrant(Point p){
 }
 
 bool is_equal(Point p1, Point p2){
-    return ((p1.x==p2.x)&&(p2.x==p2.y));
+    return ((p1.x==p2.x)&&(p1.y==p2.y));
 }
 
 bool is_origin(Point p){
     return ((p.x==0)&&(p.y==0));
+}
+
+void printPoint(Point p){
+    cout << "(" << p.x << "," << p.y << ")" << endl;
 }
