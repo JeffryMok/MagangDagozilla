@@ -27,8 +27,18 @@ void printPolygon(Polygon polygon) {
 	{ 
 		printPoint(polygon.points[i]);
 	}
+	cout << endl;
 }
 
 void deletePolygon(Polygon& polygon) {
 	free(polygon.points);
+}
+
+void copyPolygon(Polygon& src, Polygon& dst) {
+	deletePolygon(dst);
+	dst.points = (Point *) malloc(src.count * sizeof(Point));
+	for (int i=0; i<src.count; i++)
+	{
+		addPoint (src.points[i], dst);
+	}
 }

@@ -49,5 +49,5 @@ bool is_origin (Point p) {
 }
 
 void printPoint (Point p) {
-	cout << p.x << " " << p.y;
+	cout << "(" << p.x << "," << p.y << ") ";
 }
