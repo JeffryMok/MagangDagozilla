@@ -4,16 +4,23 @@
 #include <iostream>
 #include "Point.h"
 
-typedef struct Polygon {
-    Point *points;
-    int count;
-} Polygon;
+class Polygon{
+    private:
+        Point *points;
+        int count;
+        int size;
 
-Polygon makePolygon(int size);
-void addPoint(Point point, Polygon& polygon);
-void delPoint(Polygon& polygon);
-void printPolygon(Polygon polygon);
-void deletePolygon(Polygon& polygon);
-void copyPolygon(Polygon& src, Polygon& dst);
+    public:
+        Polygon(); //default constructor
+        Polygon(int size); //user0defined constructor
+        Polygon(const Polygon& poly); //copy constructor
+        ~Polygon(); //destructor
 
+        void addPoint(Point point);
+        void delPoint();
+        void print();
+        int getCount();
+        int getSize();
+
+};
 #endif
