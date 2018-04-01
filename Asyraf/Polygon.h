@@ -6,16 +6,23 @@
 
 using namespace std;
 
-typedef struct Polygon{
-	Point *points;
-	int count;
-}Polygon;
+class Polygon {
+public:
+	Point *m_points;
+	int m_size;
+	int m_count;
+public:
+	Polygon();
+	Polygon(int size);
+	Polygon(Polygon& p);
 
-Polygon makePolygon(int size);
-void addPoint (Point point, Polygon& polygon);
-void delPoint (Polygon& Polygon);
-void printPolygon(Polygon polygon);
-void deletePolygon(Polygon& polygon);
-void copyPolygon(Polygon& src, Polygon& dst);
+	void addPoint(Point& p);
+	void delPoint();
+
+	friend ostream& operator<<(ostream& out, Polygon& p);
+	Polygon& operator=(Polygon& src);
+
+	~Polygon();
+};
 
 #endif

@@ -2,43 +2,86 @@
 #include <iostream>
 #include <stdlib.h>
 
-Polygon makePolygon(int size) {
-	Polygon polygon;
-	polygon.points = (Point *) malloc(size * sizeof(Point));
-	polygon.count = 0;
-	return polygon;
+Polygon::Polygon() {
+	m_size = 5;
+	m_count = 0;
+	m_points = new Point[m_size];
 }
 
-void addPoint (Point point, Polygon& polygon) {
-	if (polygon.count < 5) {
-		polygon.points[polygon.count] = point;
-		polygon.count ++;
+Polygon::Polygon(int size) {
+	m_size = size;
+	m_count = 0;
+	m_points = new Point[m_size];
+}
+
+Polygon::Polygon(Polygon& p) {
+	m_size = p.m_size;
+	m_count = p.m_count;
+	if(p.m_points)
+	{
+		m_points = new Point[m_size];
+
+		for (int i=0; i<m_count; i++)
+		{
+			m_points[i] = p.m_points[i];
+		} 
+	}
+	else m_points=0;
+}
+
+void Polygon::addPoint(Point& p) {
+	if (m_count < m_size) {
+		m_points[m_count] = p;
+		m_count++;
+		cout << p << " has been added" << endl;
 		}
-	else cout << "Penuh bro" << endl;
+	else cout << "Penuh cuy" << endl;
 } 
 
-void delPoint (Polygon& polygon) {
-	if (polygon.count>0)
-	polygon.count --; 
-}
-
-void printPolygon(Polygon polygon) {
-	for (int i=0; i<polygon.count; i++)
-	{ 
-		printPoint(polygon.points[i]);
-	}
-	cout << endl;
-}
-
-void deletePolygon(Polygon& polygon) {
-	free(polygon.points);
-}
-
-void copyPolygon(Polygon& src, Polygon& dst) {
-	deletePolygon(dst);
-	dst.points = (Point *) malloc(src.count * sizeof(Point));
-	for (int i=0; i<src.count; i++)
+void Polygon::delPoint() {
+	if (m_count>0)
 	{
-		addPoint (src.points[i], dst);
-	}
+		cout << m_points[m_count-1] << " has been deleted" << endl;
+		--m_count;
+	} 
 }
+
+ostream& operator<<(ostream& out, Polygon& p) {
+	out << "{ ";
+	for(int i=0; i<p.m_count; ++i)
+	{
+		out << p.m_points[i] <<" ";
+	}
+	out << "}";
+
+	return out;
+}
+
+Polygon& Polygon::operator=(Polygon& src) {
+	
+	if (this == &src) return *this;
+
+	m_size = src.m_size;
+	m_count = src.m_count;
+
+	delete[] m_points;
+
+	if(m_points)
+	{
+
+		m_points = new Point[m_size];
+		for(int i=0; i<m_count; i++)
+		{
+			m_points[i] = src.m_points[i];
+		}
+	}
+
+	else m_points = 0;
+
+	return *this;
+}
+
+Polygon::~Polygon() {
+	delete[] m_points;
+}
+
