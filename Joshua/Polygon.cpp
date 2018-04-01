@@ -3,52 +3,56 @@
 
 using namespace std;
 
-Polygon makePolygon(int size){
-    Polygon poly;
-    // malloc return address of nothing
-    // sedangkan kita butuh address of point, sehingga dicasting
-    poly.count = 0;
-    poly.points = (Point*)(malloc(size * (sizeof(Point))));
-    return poly;
+Polygon::Polygon(){
+    this->size = 5;
+    this->count = 0;
+    this->points = new Point[this->size];
 }
 
+Polygon::Polygon(int size){
+    this->size = size;
+    this->count = 0;
+    this->points =  new Point[this->size];
+}
 
-void addPoint(Point point, Polygon& polygon){
-    int& indeks = polygon.count;
+Polygon::Polygon(const Polygon& poly){
+    this->size = poly.size;
+    this->count = 0;
+    this->points =  new Point[this->size];
+    for(int i = 0; i<poly.count;i++){
+        addPoint(poly.points[i]);
+    }
+}
 
-    if(indeks<5){
-        polygon.points[indeks] = point;
-        indeks++;
+Polygon::~Polygon(){
+    delete [] this->points;
+}
+
+void Polygon::addPoint(Point point){
+    if(this->count<this->size){
+        this->points[this->count] = point;
+        this->count++;
     }else{
         cout << "Penuh" <<endl;
     }
-
 }
 
-void delPoint(Polygon& polygon){
-    if(polygon.count>0){
-        polygon.count--;
+void Polygon::delPoint(){
+    if(this->count>0){
+        this->count--;
     }
 }
 
-void printPolygon(Polygon polygon){
-    int jumlah = polygon.count;
-
-    for(int i = 0; i<jumlah;i++){
-        printPoint(polygon.points[i]);
+void Polygon::print(){
+    for(int i = 0; i<this->count;i++){
+        this->points[i].print();
     }
 }
 
-void deletePolygon(Polygon& polygon){
-    free(polygon.points); //tidak polygon karena polygon diatur compiler
+int Polygon::getCount(){
+    return this->count;
 }
 
-void copyPolygon(Polygon& src, Polygon& dst){
-    Polygon copy = makePolygon(src.count);
-    for(int i = 0; i<src.count;i++){
-        addPoint(src.points[i],copy);
-    }
-    dst = copy;
-
-    //  dst = src;
+int Polygon::getSize(){
+    return this->size;
 }
