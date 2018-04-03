@@ -4,24 +4,33 @@
 using namespace std;
 
 int main() {
-        Point a, b;
+        Point a(9,4);
+        Point b(8,3);
+
         float dist;
 
-        a.x=9;
-        a.y=4;
+        cout << "Point a" << a << endl;
+        cout << "Point b" << b << endl;
+        cout << endl;
 
-        b.x=8;
-        b.y=3;
+        cout << "Distance to b = "<< a.distance(b) << endl;
+	cout << "Distance to (0.0) = " << a.distance_to_origin() << endl;
+	cout << "Quadrant a = " << a.quadrant() << endl;
+	cout << "a is equal b? " << a.is_equal(b) << endl;
+	cout << "a is origin? " << a.is_origin() << endl;
+        cout << endl;
 
-        cout << a.x << " " << a.y <<endl;
-	cout << add(a,b).x << endl;
-	cout << substract(a,b).x << endl;
-        cout << distance(a, b) << endl;
-	cout << distance_to_origin(a) << endl;
-	cout << quadrant(a) << endl;
-	cout << quadrant(a) << endl;
-	cout << is_equal(a,b) << endl;
-	cout << is_origin(a) << endl;
+        Point c = a+b;
+        Point d = a-b;
+        cout << "a + b = " << c << endl;
+        cout << "a - b = " << d << endl;
+        cout << endl;
+
+        Point e(a);
+        cout << "Point e = " << e << endl;
+
+        e = b;
+        cout << "Point e = " << e << endl;
 
         return 0;
 

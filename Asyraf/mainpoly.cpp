@@ -6,40 +6,28 @@ using namespace std;
 int main() {
 	Polygon new_poly;
 
-	new_poly = makePolygon(5);
+	Point p1(10,15);
+	Point p2(5,5);
+	Point p3(20,25);
 
-	Point p1;
-	p1.x = 10;
-	p1.y = 15;
+	new_poly.addPoint(p1);
+	new_poly.addPoint(p2);
+	new_poly.addPoint(p3);
 
-	Point p2;
-	p2.x = 5;
-	p2.y = 5;
+	cout <<"new_poly = " << new_poly << endl;	
 
-	Point p3;
-	p3.x = 20;
-	p3.y = 25;
-
-	addPoint(p1, new_poly);
-	addPoint(p2, new_poly);
-	addPoint(p3, new_poly);
-
-	printPolygon(new_poly);	
-
-	Polygon copy_poly = makePolygon(5);
-
-	copyPolygon(new_poly, copy_poly);
+	Polygon copy_poly (new_poly);
 	
-	printPolygon(copy_poly);
+	cout <<"copy_poly = " << copy_poly << endl << endl; 
 
-	delPoint(new_poly);	
+	new_poly.delPoint();	
 
-	printPolygon(new_poly);
-	printPolygon(copy_poly);
+	cout << "new_poly = " << new_poly << endl;
+	cout << "copy_poly = " << copy_poly <<endl; 
 
-	deletePolygon(new_poly);
-	deletePolygon(copy_poly);
+	copy_poly = new_poly;
 
+	cout << "copy_poly = " << copy_poly <<endl; 
 
 	return 0;
 }

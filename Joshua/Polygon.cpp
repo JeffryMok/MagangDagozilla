@@ -10,8 +10,6 @@ Polygon::Polygon(){
 }
 
 Polygon::Polygon(int size){
-    // malloc return address of nothing
-    // sedangkan kita butuh address of point, sehingga dicasting
     this->size = size;
     this->count = 0;
     this->points =  new Point[this->size];
@@ -19,7 +17,8 @@ Polygon::Polygon(int size){
 
 Polygon::Polygon(const Polygon& poly){
     this->size = poly.size;
-    this->count = poly.count;
+    this->count = 0;
+    this->points =  new Point[this->size];
     for(int i = 0; i<poly.count;i++){
         addPoint(poly.points[i]);
     }
@@ -46,14 +45,14 @@ void Polygon::delPoint(){
 
 void Polygon::print(){
     for(int i = 0; i<this->count;i++){
-        printPoint(this->points[i]);
+        this->points[i].print();
     }
 }
 
 int Polygon::getCount(){
-    return count;
+    return this->count;
 }
 
 int Polygon::getSize(){
-    return size;
+    return this->size;
 }
