@@ -1,18 +1,25 @@
 #ifndef POLYGON_H
 #define POLYGON_H
-
+#include <iostream>
 #include "Point.h"
 
-typedef struct Polygon {
+class Polygon {
+private:
   Point *points;
   int count;
-} Polygon;
+  int size;
 
-Polygon makePolygon (int size);
-void addPoint (Point p, Polygon& poly);
-void delPoint(Polygon& poly);
-void printPolygon(Polygon poly);
-void deletePolygon(Polygon& poly);
-void copyPolygon(Polygon& src, Polygon& dst);
+public:
+Polygon();
+Polygon(int size);
+Polygon(const Polygon& poly);
+~Polygon();
+
+void addPoint (Point p);
+void delPoint();
+void printPolygon();
+int getCount();
+int getSize();
+};
 
 #endif

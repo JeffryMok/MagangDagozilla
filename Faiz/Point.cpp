@@ -2,54 +2,61 @@
 #include "Point.h"
 using namespace std;
 
-Point makePoint(int x, int y) {
-  Point p;
-  p.x = x;
-  p.y = y;
-  return p;
+Point::Point(){
+    x = 0;
+    y = 0;
 }
 
-Point add (Point a, Point b) {
+Point::Point(int x, int y){
+    this->x = x;
+    this->y = y;
+}
+
+
+Point Point::add(Point a) {
   Point sum;
-  sum.x = a.x + b.x;
-  sum.y = a.y + b.y;
+  sum.x = a.x + x;
+  sum.y = a.y + y;
   return sum;
 }
 
-Point substract (Point a, Point b) {
+Point Point::substract(Point a) {
   Point sum;
-  sum.x = a.x -b.x;
-  sum.y = a.y -b.y;
+  sum.x = x -a.x;
+  sum.y = y -a.y;
   return sum;
 }
 
-float distance (Point a, Point b) {
+float Point::distance (Point a) {
   float jarak;
-  jarak = sqrt(pow((a.x-b.x),2)+pow((a.y-b.y),2));
+  jarak = sqrt(pow((a.x-x),2)+pow((a.y-y),2));
   return jarak;
 }
 
-float distance_to_origin (Point p) {
+float Point::distance_to_origin () {
   float jarak;
-  jarak = sqrt(pow(p.x,2)+pow(p.y,2));
+  jarak = sqrt(pow(x,2)+pow(y,2));
   return jarak;
 }
 
-int quadrant (Point p) {
-  if((p.x>0) && (p.y>0)) return 1;
-  if((p.x<0) && (p.y>0)) return 2;
-  if((p.x<0) && (p.y<0)) return 3;
-  if((p.x>0) && (p.y<0)) return 4;
+int Point::quadrant () {
+  int kuadran;
+  if((x==0)||(y==0)) kuadran = 0;
+  if((x>0) && (y>0)) kuadran = 1;
+  if((x<0) && (y>0)) kuadran = 2;
+  if((x<0) && (y<0)) kuadran = 3;
+  if((x>0) && (y<0)) kuadran = 4;
+  return kuadran;
 }
 
-bool isEqual (Point a, Point b) {
-  return ((a.x==b.x) &&  (a.y==b.y));
+bool Point::isEqual (Point a) {
+  return ((a.x==x) &&  (a.y==y));
 }
 
-bool isOrigin (Point p) {
-  return ((p.x==0) && (p.y==0));
+bool Point::isOrigin () {
+  return ((x==0) && (y==0));
 }
 
-void printPoint (Point p) {
-  cout << "(" << p.x << ", " << p.y << ")"<< endl;
+void Point::print() {
+  cout << "(" << x << ", " << y << ")"<< endl;
 }
